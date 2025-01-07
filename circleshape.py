@@ -1,12 +1,16 @@
+from typing import Any
+
 import pygame
 
 
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
+    containers: Any | None = None
+
     def __init__(self, x, y, radius):
         # we will be using this later
-        if hasattr(self, "containers"):
-            super().__init__(self.containers)  # pyright: ignore[]
+        if self.containers:
+            super().__init__(self.containers)
         else:
             super().__init__()
 
