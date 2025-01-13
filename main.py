@@ -44,6 +44,11 @@ def main():
                 print("Game over!")
                 exit()
 
+            for shot in shots_group:
+                if shot.is_colliding(thing):
+                    thing.split()
+                    shot.kill()
+
         for thing in drawable_group:
             thing.draw(screen)
 
